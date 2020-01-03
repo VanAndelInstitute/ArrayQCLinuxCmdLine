@@ -1,0 +1,19 @@
+FROM centos:latest
+MAINTAINER zackramjan
+LABEL Remarks=”perform qc on illumina array data ”
+RUN \
+	yum -y update && \
+	yum -y install wget && \
+	yum -y install libicu && \
+	yum -y install epel-release && \
+	yum -y install dnf-plugins-core && \
+	yum config-manager --set-enabled PowerTools && \
+	yum -y install dnf-plugins-core && \
+	yum -y install R-core && \
+	yum clean all 
+
+ADD ./install.sh /root/
+RUN /root/install.sh
+ 
+ENTRYPOINT [“ping”]
+CMD [“google.com”]
