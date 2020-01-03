@@ -15,5 +15,3 @@ RUN \
 ADD ./install.sh /root/
 RUN /root/install.sh
  
-ENTRYPOINT [“ping”]
-CMD [“google.com”]
